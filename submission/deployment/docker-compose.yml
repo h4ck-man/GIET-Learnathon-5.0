@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: ../source
+      dockerfile: ../deployment/Dockerfile
+    container_name: hostelgrievance-app
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+      - "5173:5173"
+    environment:
+      - NODE_ENV=production
+      - HOSTEL_API_PORT=3001
+      - HOSTEL_DB_PATH=/app/data/hostel.db
+      - HOSTEL_UPLOADS_DIR=/app/uploads
+      - ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+    volumes:
+      - app-data:/app/data
+      - app-uploads:/app/uploads
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  app-data:
+    name: hg-database-data
+  app-uploads:
+    name: hg-uploads-data

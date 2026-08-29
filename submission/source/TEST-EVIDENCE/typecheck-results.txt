@@ -1,0 +1,8 @@
+
+> hostelgrievance@0.0.1 typecheck
+> svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && tsc --noEmit -p tsconfig.server.json
+
+Loading svelte-check in workspace: /Users/prateekpd/GIET-Learnathon-5.0
+Getting Svelte diagnostics...
+
+svelte-check found 0 errors and 0 warnings
